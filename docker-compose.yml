@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: ./Frontend/frontend
+    ports:
+      - 3000:3000 
+    depends_on:
+      - backend
+
+  backend:
+    build:
+      context: ./Backend 
+      dockerfile: Dockerfile 
+    ports:
+      - 3001:3001
+    environment:
+      - mongodb+srv://vishnukumarit24:7yY0sqvdFn5QhTXe@cluster0.94fcjuv.mongodb.net/?retryWrites=true&w=majority
+
+  database:
+    image: mongo:latest
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=vishnukumarit24
+      - MONGO_INITDB_ROOT_PASSWORD=7yY0sqvdFn5QhTXe
+
+networks:
+  default:
+    external:
+      name: bridge
