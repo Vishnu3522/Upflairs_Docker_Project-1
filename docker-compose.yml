@@ -16,8 +16,7 @@ services:
     ports:
       - 3001:3001
     environment:
-      - mongodb+srv://vishnukumarit24:7yY0sqvdFn5QhTXe@cluster0.94fcjuv.mongodb.net/?retryWrites=true&w=majority
-
+      - ""
   database:
     image: mongo:latest
     environment:
